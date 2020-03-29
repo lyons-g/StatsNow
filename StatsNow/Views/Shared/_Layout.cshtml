@@ -2,47 +2,45 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
     <title>@ViewBag.Title</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+    
+    <link href="~/Content/site.css" rel="stylesheet" />
+    
+    
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-    <link href="~/Content/site.css" rel="stylesheet" />
-
-    <link href="https://kendo.cdn.telerik.com/2020.1.219/styles/kendo.bootstrap-v4.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="[file path]/kendo.common.min.css" />
-    <link rel="stylesheet" href="[file path]/kendo.default.min.css" />
-
-    <script src="https://kendo.cdn.telerik.com/2020.1.219/js/jquery.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2020.1.219/js/kendo.all.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2020.1.219/js/kendo.aspnetmvc.min.js"></script>
-
-    <header class="bg-primary text-center py-5 mb-4">
-        <div class="container">
-            <h1 class="font-weight-light text-white">Stats Now</h1>
-        </div>
-    </header>
+    
 
 </head>
+
+<body>
+    <div class="jumbotron">
+            <h1>Stats Now</h1>
+        </div>
+
+
+
+
 
 <div class="container">
     <div class="row">
         <div class="col-xl-3" col-md-6 mb-4>
             <div class="card border-0 shadow">
                 <svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd" /></svg>
-           <h5 class="=card-title mb-0"> Games</h5>
+           <h5 class="card-title mb-0"> Games</h5>
                 <h4 class="card-text text=black-50"><a asp-controller="Game" asp-action="List">View </a></h4>
                 </div>
             </div>
     </div>
 </div>
 
-<body>
+
 
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <a class="navbar-brand" href="#">STATsNOW</a>
@@ -60,8 +58,6 @@
     </nav>
 
 
-
-    </style>
     <div class=" container">
         <div class=" row">
             <div class=" col-md-3">
