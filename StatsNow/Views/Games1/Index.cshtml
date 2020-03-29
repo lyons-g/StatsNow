@@ -1,0 +1,185 @@
+﻿@model IEnumerable<StatsNow.Models.Game>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Home)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Away)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsGamesOfTheSeason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Win)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FGA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FGperC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Two_PM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Two_PA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Three_PM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Three_PC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FTM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FTA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FT_PC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.O_Rb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.D_Rb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total_Reb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AST)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Steal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Block)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Points)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Home)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Away)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsGamesOfTheSeason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Win)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FGA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FGperC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Two_PM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Two_PA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Three_PM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Three_PC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FTM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FTA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FT_PC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.O_Rb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.D_Rb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Reb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AST)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Steal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Block)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Points)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GameId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GameId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GameId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

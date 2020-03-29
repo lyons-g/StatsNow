@@ -1,0 +1,174 @@
+﻿@model StatsNow.Models.Game
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Home)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Home)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Away)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Away)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Venue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Venue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HomeScore)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HomeScore)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AwayScore)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AwayScore)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsGamesOfTheSeason)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsGamesOfTheSeason)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category.CategoryId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Win)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Win)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FG)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FGA)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FGA)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FGperC)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FGperC)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Two_PM)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Two_PM)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Two_PA)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Two_PA)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Three_PM)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Three_PM)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Three_PC)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Three_PC)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FTM)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FTM)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FTA)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FTA)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FT_PC)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FT_PC)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.O_Rb)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.O_Rb)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.D_Rb)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.D_Rb)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Total_Reb)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Total_Reb)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AST)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AST)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TO)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TO)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Steal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Steal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Block)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Block)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.GameId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

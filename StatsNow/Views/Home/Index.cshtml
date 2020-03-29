@@ -1,0 +1,21 @@
+﻿@model  HomeViewModel
+
+
+<h2> Games of the Season</h2>
+
+<div class="row">
+
+     @foreach(var game in Model.GamesOfTheSeason)
+     {
+         <partial name="_GameCard" model="game" />
+
+     }
+
+</div>
+
+
+<div class="text-center">
+
+    <h2>Kendo UI DatePicker</h2>
+    <kendo-datepicker name="my-picker" />
+</div>

@@ -1,0 +1,100 @@
+﻿@model Game
+
+
+
+
+<table class=" table-striped">
+
+    <tr>
+        <td> @Model.Home</td>
+        <td>@Model.HomeScore</td>
+        <td>@Model.Away</td>
+        <td>@Model.AwayScore</td>
+    </tr>
+</table>
+
+<table class="table-bordered">
+    <tr>
+        <td>FG</td>
+        <td>FGA</td>
+        <td>FG%</td>
+    </tr>
+    <tr>
+        <td>@Model.FG</td>
+        <td>@Model.FGA</td>
+        <td>@Model.FGperC</td>
+    </tr>
+
+
+</table>
+    
+    <div style="width:100%;" id="chart"></div>
+
+<script type="text/javascript">
+    console.log(@Model.FG)
+
+</script>
+
+
+<script>
+    class GameGraph {
+        constructor(GraphId, GraphItem, GraphValue) {
+            this.id = GraphId;
+            this.item = GraphItem;
+            this.value = GraphValue;
+        }
+    }
+        var myArray = [];
+
+        myArray.push(new GameGraph(@Model.GameId, "@Model.Venue", @Model.FG ));
+   // myArray.push(new GameGraph(1, "test",99));
+    var sharedDataSource = new kendo.data.DataSource({
+        data: myArray
+            ,
+        schema: {
+            model: {
+                id: "id",
+                fields: {
+                    id: { type: "number", editable: false },
+                    value: { type: "number" },
+                    item: { type: "string" }
+                }
+            }
+        }
+    });
+
+
+
+    $("#chart").kendoChart({
+
+        dataSource: sharedDataSource,
+        autoBind: false,
+        categoryAxis: {
+            field: "item"
+        },
+        series: [
+            { field: "value", name: "Value" }
+        ]
+    });
+
+
+    $(window).resize(function(){
+    $("#chart").data("kendoChart").refresh();
+    });
+
+ // $(window).on("resize", kendoChart({
+  //   kendo.resize($(".chart-wrapper")),
+// });
+
+
+  //  $(window).resize(function ()
+  //{
+   // kendo.resize($("div.k-chart[data-role='chart']"));
+
+ // $("#chart").data("kendoChart").refresh();
+//});
+
+    sharedDataSource.read();
+    console.log(sharedDataSource);
+
+</script>

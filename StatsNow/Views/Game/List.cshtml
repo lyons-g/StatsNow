@@ -1,0 +1,12 @@
+﻿@model GamesListViewModel
+
+
+
+<h1>@Model.CurrentCategory</h1>
+@foreach (var game in Model.Games)
+{
+	<partial name="_GameCard" model="game" />
+
+}
+
+

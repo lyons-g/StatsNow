@@ -1,0 +1,15 @@
+﻿@model Game
+
+<div>
+    <table class="table table-dark">
+        <tr>
+            <th>@Model.Home</th>
+            <th>@Model.HomeScore</th>
+            <th>@Model.Away</th>
+            <th>@Model.AwayScore</th>
+            <th>@Model.Category.CategoryName</th>
+            <th>@Model.Win</th>
+            <th><a asp-controller="Game" asp-action="Details" asp-route-id="@Model.GameId"> View Stats </a></th>
+        </tr>
+    </table>
+</div>

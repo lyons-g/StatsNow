@@ -1,0 +1,416 @@
+﻿@model IEnumerable<StatsNow.Models.Game>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<canvas id="canvas" width="400" height="400"></canvas>
+<br>
+<br>
+<canvas id="canvas2" width="400" height="400"></canvas>
+
+<br>
+<br>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<br>
+<br>
+
+<canvas id="myChart3" width="400" height="400"></canvas>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js" integrity="sha256-qSIshlknROr4J8GMHRlW3fGKrPki733tLq+qeMCR05Q=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js" integrity="sha256-arMsf+3JJK2LoTGqxfnuJPFTU4hAK57MtIPdFpiHXOU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+
+        function GetJSON_Simple() {
+            var resp = [];
+            $.ajax({
+                type: "GET",
+                url: '/Games/Method',
+                async: false,
+                contentType: "application/json",
+                success: function (data) {
+                    resp.push(data);
+
+                },
+                error: function (req, status, error) {
+                    // do something with error
+                    alert("error");
+                }
+            });
+            return resp;
+        }
+
+
+        var simpleData = GetJSON_Simple();
+        var ctx = document.getElementById("canvas")
+        var lineChartData = {
+            labels: simpleData[0].myGame,
+            datasets: [{
+                label: 'Win',
+                borderColor: "MediumSeaGreen",
+                backgroundColor: "MediumSeaGreen",
+                fill: false,
+                display: false,
+                data: simpleData[0].myWin,
+                yAxisID: 'y-axis-1',
+            }, {
+                label: 'Loss',
+                borderColor: "Tomato",
+                backgroundColor: "Tomato",
+                fill: false,
+                display: false,
+                data: simpleData[0].myLoss,
+                yAxisID: 'y-axis-2'
+            }, {
+                label: 'All',
+                borderColor: "Blue",
+                backgroundColor: "Blue",
+                fill: false,
+                display: false,
+                data: simpleData[0].myAll,
+                yAxisID: 'y-axis-3'
+            }]
+
+
+        };
+
+        window.myLine = Chart.Line(ctx, {
+            data: lineChartData,
+            options: {
+                responsive: true,
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    text: 'Processes'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-axis-1',
+                    }, {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        id: 'y-axis-2',
+                    }, {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        id: 'y-axis-3',
+
+
+                        // grid line settings
+                        gridLines: {
+                            drawOnChartArea: false, // only want the grid lines for one axis to show up
+                        },
+                    }],
+                }
+            }
+        });
+    </script>
+
+}
+
+
+<script type="text/javascript">
+
+    function GetJSON_Simple2() {
+        var resp2 = [];
+        $.ajax({
+            type: "GET",
+            url: '/Games/Method',
+            async: false,
+            contentType: "application/json",
+            success: function (data) {
+                resp2.push(data);
+
+            },
+            error: function (req, status, error) {
+                // do something with error
+                alert("error");
+            }
+        });
+        return resp2;
+    }
+
+    var simpleData2 = GetJSON_Simple2();
+    var ctx = document.getElementById("canvas2")
+    var barChartData = {
+        labels: simpleData2[0].myGame,
+        datasets: [{
+            label: 'Win',
+            borderColor: "MediumSeaGreen",
+            backgroundColor: "MediumSeaGreen",
+            fill: false,
+            display: false,
+            data: simpleData2[0].myWin,
+            yAxisID: 'y-axis-1',
+        }, {
+            label: 'Loss',
+            borderColor: "Tomato",
+            backgroundColor: "Tomato",
+            fill: false,
+            display: false,
+            data: simpleData2[0].myLoss,
+            yAxisID: 'y-axis-2'
+        }]
+    };
+
+    window.myBar = Chart.Bar(ctx, {
+        data: barChartData,
+        options: {
+            responsive: true,
+            hoverMode: 'index',
+            stacked: false,
+            title: {
+                display: true,
+                text: 'Processes'
+            },
+            scales: {
+                yAxes: [{
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    id: 'y-axis-1',
+                }, {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    id: 'y-axis-2',
+                }, {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    id: 'y-axis-3',
+
+
+                    // grid line settings
+                    gridLines: {
+                        drawOnChartArea: false, // only want the grid lines for one axis to show up
+                    },
+                }],
+            }
+        }
+    });
+</script>
+
+
+
+
+<script type="text/javascript">
+
+    function GetJSON_Simple3() {
+        var resp3 = [];
+        $.ajax({
+            type: "GET",
+            url: '/Games/Method',
+            async: false,
+            contentType: "application/json",
+            success: function (data) {
+                resp3.push(data);
+
+            },
+            error: function (req, status, error) {
+                // do something with error
+                alert("error");
+            }
+        });
+        return resp3;
+    }
+
+
+    var simpleData3 = GetJSON_Simple3();
+    var ctx = document.getElementById('myChart3');
+    var myChartData = {
+        labels: simpleData3[0].myGame,
+        datasets: [{
+            // type: 'bar',
+            data: simpleData3[0].myAll,
+            label: 'FG%',
+
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    window.myChart3 = Chart.Bar(ctx, {
+        data: myChartData,
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                }],
+            }
+        }
+    });
+
+    console.log(simpleData3[0].myGame);
+    console.log(simpleData3[0].myAll);
+</script>
+
+
+<script>
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Home)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Away)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsGamesOfTheSeason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Win)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FGA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FGperC)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Home)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Away)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Venue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomeScore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AwayScore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsGamesOfTheSeason)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Win)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FGA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FGperC)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.GameId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.GameId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.GameId">Delete</a>
+                </td>
+            </tr>
+
+
+
+
+        }
+    </tbody>
+</table>
