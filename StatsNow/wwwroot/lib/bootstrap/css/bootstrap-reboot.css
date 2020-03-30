@@ -31,8 +31,6 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
-  padding: 0;
-  padding-top: 0px;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {

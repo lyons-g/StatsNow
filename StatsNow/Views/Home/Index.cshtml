@@ -1,16 +1,23 @@
-﻿@model  HomeViewModel
+﻿@{ 
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    
+    }
 
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <h1>Welcome to Stats.Now</h1>
+                <p>Bringing the numbers to life</p>
+            </div>
+        </div>
+    </div>
+</header>
 
-<h2> Games of the Season</h2>
-
-<div class="row">
-
-     @foreach(var game in Model.GamesOfTheSeason)
-     {
-         <partial name="_GameCard" model="game" />
-
-     }
-
-</div>
-
-
+<!-- Page Content -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="font-weight-light">Mission</h2>
+        <p>To bring meaning to the numbers in the stats columns, to track progress and to improve performance </p>
+    </div>
+</section>

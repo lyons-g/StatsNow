@@ -38,20 +38,29 @@
         </div>
     </nav>
 
-
-    <div class=" container">
-        <div class=" row">
-            <div>
-                @RenderBody()
-            </div>
-
-        </div>
-    </div>
-
-
+    @RenderBody()
     @RenderSection("Scripts", required: false)
 
 
 
 </body>
 </html>
+
+
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+    </html>
+
+
+*@
