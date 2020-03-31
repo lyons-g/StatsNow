@@ -13,7 +13,7 @@ namespace StatsNow.Models
         public string TeamName { get; set; }
         public Category Category { get; set; }
 
-       public List<Player> Roster { get; set; }
+       public ICollection<Player> Roster { get; set; }
 
 
     }
